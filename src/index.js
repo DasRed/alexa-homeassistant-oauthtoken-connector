@@ -6,7 +6,7 @@ export const handler = (event) => {
 
         const request = https.request(
             {
-                hostname:           'homeassistant.dasred.de',
+                hostname:           process.env.AHC_HOMEASSISTANT_HOST,
                 path:               '/auth/token',
                 port:               process.env.AHC_HOMEASSISTANT_PORT ?? 443,
                 method:             event.httpMethod,
