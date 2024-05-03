@@ -36,7 +36,11 @@ export const handler = (event) => {
                     const resultBody = {
                         isBase64Encoded: false,
                         statusCode:      response.statusCode || 500,
-                        headers:         ALLOW_HEADERS.reduce((acc, key) => acc[key] = response.headers[key] && acc, {}),
+                        headers:         ALLOW_HEADERS.reduce((acc, key) => {
+                            acc[key] = response.headers[key];
+                            console.log(key, response.headers[key]);
+                            return acc;
+                        }, {}),
                         body,
                     };
 
