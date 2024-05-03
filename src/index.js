@@ -1,5 +1,19 @@
 import https from 'https';
 
+const ALLOW_HEADERS = [
+    'server',
+    'date',
+    //'connection',
+    'content-type',
+    'content-length',
+    'pragma',
+    'cache-control',
+    //'referrer-policy',
+    //'x-content-type-options',
+    //'x-frame-options',
+    //'x-served-by',
+];
+
 export const handler = (event) => {
     return new Promise((resolve, reject) => {
         console.log('Request', JSON.stringify(event));
@@ -22,7 +36,7 @@ export const handler = (event) => {
                     const resultBody = {
                         isBase64Encoded: false,
                         statusCode:      response.statusCode || 500,
-                        headers:         response.headers,
+                        headers:         ALLOW_HEADERS.reduce((acc, key) => acc[key] = response.headers[key] && acc, {}),
                         body,
                     };
 
