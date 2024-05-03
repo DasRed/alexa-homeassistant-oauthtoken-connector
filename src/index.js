@@ -38,7 +38,6 @@ export const handler = (event) => {
                         statusCode:      response.statusCode || 500,
                         headers:         ALLOW_HEADERS.reduce((acc, key) => {
                             acc[key] = response.headers[key];
-                            console.log(key, response.headers[key]);
                             return acc;
                         }, {}),
                         body,
