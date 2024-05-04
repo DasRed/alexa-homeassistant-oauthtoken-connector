@@ -1,13 +1,13 @@
 import https from 'https';
 
 const ALLOW_HEADERS = [
-    'server',
-    'date',
+    //'server',
+    //'date',
     //'connection',
     'content-type',
     'content-length',
-    'pragma',
-    'cache-control',
+    //'pragma',
+    //'cache-control',
     //'referrer-policy',
     //'x-content-type-options',
     //'x-frame-options',
